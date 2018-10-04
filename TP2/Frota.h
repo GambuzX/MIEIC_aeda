@@ -14,6 +14,8 @@ public:
 	void adicionaVeiculo(Veiculo * v1);
 	int numVeiculos() const;
 	int menorAno() const;
+	vector<Veiculo *> operator() (int anoM) const;
+	float totalImposto() const;
 };
 
 
