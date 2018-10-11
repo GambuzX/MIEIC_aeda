@@ -33,9 +33,8 @@ bool Zoo::animalJovem(string nomeA) {
 }
 
 void Zoo::alocaVeterinarios(istream &isV) {
-	string name;
+	string name, codeS;
 	while(getline(isV, name)) {
-		string codeS;
 		getline(isV, codeS);
 		long code = stoi(codeS);
 		Veterinario * vet = new Veterinario(name, code);

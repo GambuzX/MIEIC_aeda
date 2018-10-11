@@ -35,7 +35,7 @@ string Animal::getInformacao() const {
 bool Animal::alocaVet(Veterinario *vete) {
 	if (vete == NULL) return 1;
 	vet = vete;
-	return 1;
+	return 0;
 }
 
 Cao::Cao(string nome, int idade, string raca): Animal(nome,idade) {
