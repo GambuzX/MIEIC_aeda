@@ -20,9 +20,8 @@ public:
 	static int getMaisJovem() { return maisJovem; }
 	virtual bool eJovem() const = 0;
 	virtual string getInformacao() const;
+	bool alocaVet(Veterinario *vet);
 };
-
-
 
 class Cao: public Animal {
 	string raca;

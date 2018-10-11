@@ -26,8 +26,16 @@ int Animal::maisJovem = -1;
 string Animal::getInformacao() const {
 	ostringstream oss;
 	oss << nome << ", " << idade;
-	if (vet != NULL) oss << ", " << vet->getNome();
+	if (vet != NULL) {
+		oss << ", " << vet->getNome() << ", " << vet->getCodOrdem();
+	}
 	return oss.str();
+}
+
+bool Animal::alocaVet(Veterinario *vete) {
+	if (vete == NULL) return 1;
+	vet = vete;
+	return 1;
 }
 
 Cao::Cao(string nome, int idade, string raca): Animal(nome,idade) {

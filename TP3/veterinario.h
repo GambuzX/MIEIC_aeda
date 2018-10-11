@@ -11,6 +11,7 @@ class Veterinario {
 public:
 	Veterinario(string nome, int cod);
 	string getNome() const;
+	long getCodOrdem() const;
 	//completar
 };
 

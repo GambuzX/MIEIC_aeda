@@ -16,6 +16,8 @@ public:
 	string getInformacao() const;
 	void alocaVeterinarios(istream &isV);
 	bool animalJovem(string nomeA);
+	bool removeVeterinario(string nomeV);
+	bool operator<(Zoo& zoo2) const;
 };
 
 
