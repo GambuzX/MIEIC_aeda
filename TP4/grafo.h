@@ -173,10 +173,38 @@ A & Grafo<N, A>::valorAresta(const N &inicio, const N &fim) {
 		if ((*nos[i]).info == inicio) start = nos[i];
 		else if ((*nos[i]).info == fim) end = nos[i];
 
+	if (start == NULL) throw NoInexistente<N>(inicio);
+	if (end == NULL) throw NoInexistente<N>(fim);
+
 	for (auto it = start->arestas.begin(); it != start->arestas.end(); it++)
 		if (it->destino == end) edge = &(*it);
 
 	if (edge == NULL) throw ArestaInexistente<N>(inicio, fim);
 
-	return (*edge).valor;
+	return edge->valor;
+}
+
+template <class N, class A>
+Grafo<N,A> & Grafo<N,A>::eliminarAresta(const N &inicio, const N &fim) {
+	No<N,A> * start = NULL;
+	No<N,A> * end = NULL;
+	int index = -1;
+
+	for (size_t i = 0; i < nos.size(); i++)
+		if ((*nos[i]).info == inicio) start = nos[i];
+		else if ((*nos[i]).info == fim) end = nos[i];
+
+	if (start == NULL) throw NoInexistente<N>(inicio);
+	if (end == NULL) throw NoInexistente<N>(fim);
+
+
+	for (size_t i = 0; i < start->arestas.size(); i++) {
+		if (start->arestas[i].destino == end)
+			index = i;
+	}
+
+	if (index == -1) throw ArestaInexistente<N>(inicio, fim);
+
+	start->arestas.erase(start->arestas.begin()+index);
+	return *this;
 }
