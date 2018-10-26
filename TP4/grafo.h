@@ -210,3 +210,22 @@ Grafo<N,A> & Grafo<N,A>::eliminarAresta(const N &inicio, const N &fim) {
 	start->arestas.erase(start->arestas.begin()+index);
 	return *this;
 }
+
+template <class N, class A>
+void Grafo<N,A>::imprimir(std::ostream &os) const {
+	for (const auto & node: nos) {
+		os << "( " << node->info;
+		for (const auto & edge: node->arestas) {
+			os << "[ " << edge.destino->info << " " << edge.valor << "] ";
+		}
+		os << ") ";
+	}
+}
+
+
+template <class N, class A>
+std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g) {
+	g.imprimir(out);
+	return out;
+}
+
