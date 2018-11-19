@@ -53,15 +53,26 @@ string Jogo::escreve() const
 Crianca& Jogo::perdeJogo(string frase)
 {
 	int nP = numPalavras(frase);
-	int index = nP % criancas.size();
-	list<Crianca>::iterator it = criancas.begin();
-	for (int i = 0; i < index; i++) it++;
-	return *it;
+	while(criancas.size() > 1) {
+		int index = (nP-1) % criancas.size();
+		list<Crianca>::iterator it = criancas.begin();
+		for (int i = 0; i < index; i++) it++;
+		criancas.erase(it);
+	}
+	return *(criancas.begin());
 }
 
 
 list<Crianca>& Jogo::inverte()
 {
+	list<Crianca> lista;
+	int n = criancas.size();
+	for (int i = 0; i < n; i++) {
+		lista.push_back(criancas.back());
+		criancas.pop_back();
+	}
+	criancas.clear();
+	for (const auto & c: lista) criancas.push_back(c);
 	// a alterar
 	return criancas;
 }
@@ -69,9 +80,17 @@ list<Crianca>& Jogo::inverte()
 
 list<Crianca> Jogo::divide(unsigned id)
 {
-	// a alterar
-		list<Crianca> res;
-		return res;
+	list<Crianca> lista;
+	list<Crianca>::iterator it;
+	for (it = criancas.begin(); it != criancas.end(); it++) {
+		if (it->getIdade() > id) {
+			lista.push_back(*it);
+			it = criancas.erase(it);
+			it--;
+		}
+	}
+
+	return lista;
 }
 
 
@@ -83,14 +102,20 @@ void Jogo::setCriancasJogo(const list<Crianca>& l1)
 
 bool Jogo::operator==(Jogo& j2)
 {
-	// a alterar
-	return true;
+	return criancas == j2.getCriancasJogo();
 }
 
 
 list<Crianca> Jogo::baralha() const
 {
-	// a alterar
-	list<Crianca> res;
-	return res;
+	list<Crianca> copy = criancas;
+	list<Crianca> randomL;
+	for (unsigned i = 0; i < criancas.size(); i++){
+		int index = rand() % copy.size();
+		list<Crianca>::iterator it = copy.begin();
+		for (int j = 0; j < index; j++) it++;
+		randomL.push_back(*it);
+		copy.erase(it);
+	}
+	return randomL;
 }

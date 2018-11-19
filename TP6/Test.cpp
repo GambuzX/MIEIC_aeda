@@ -99,7 +99,7 @@ void test_c_perdeJogo(){
 
 
 void test_d_inverteJogo(){
-	/*Crianca c1("Rui",6);
+	Crianca c1("Rui",6);
 	Crianca c2("Vasco",5);
 	Crianca c3("Ana",4);
 	Crianca c4("Joao",5);
@@ -119,11 +119,11 @@ void test_d_inverteJogo(){
 
 	list<Crianca> invertida = jogo1.inverte();
 	ASSERT_EQUAL("Rita", invertida.front().getNome());
-	ASSERT_EQUAL("Rui", invertida.back().getNome());*/
+	ASSERT_EQUAL("Rui", invertida.back().getNome());
 }
 
 void test_e_divideJogo(){
-	/*Crianca c1("Rui",6);
+	Crianca c1("Rui",6);
 	Crianca c2("Ana",4);
 	Crianca c3("Rita",3);
 	Crianca c4("Joao",5);
@@ -139,11 +139,11 @@ void test_e_divideJogo(){
 
 	list<Crianca> dividida = jogo1.divide(5);
 	Jogo jogo2(dividida);
-	ASSERT_EQUAL("Rui : 6\nMarta : 7\n", jogo2.escreve());*/
+	ASSERT_EQUAL("Rui : 6\nMarta : 7\n", jogo2.escreve());
 }
 
 void test_f_igualdadeJogo(){
-	/*list<Crianca> criancas1;
+	list<Crianca> criancas1;
 	criancas1.push_back( Crianca("Rui",6) );
 	criancas1.push_back( Crianca("Ana",4) );
 	criancas1.push_back( Crianca("Rita",3) );
@@ -166,11 +166,11 @@ void test_f_igualdadeJogo(){
 	criancas2.push_back( Crianca("Ines",5) );
 
 	jogo2.setCriancasJogo(criancas2);
-	ASSERT_EQUAL(false, jogo1 == jogo2);*/
+	ASSERT_EQUAL(false, jogo1 == jogo2);
 }
 
 void test_g_baralhaCriancas(){
-	/*list<Crianca> criancas;
+	list<Crianca> criancas;
 	criancas.push_back( Crianca("Rui",6) );
 	criancas.push_back( Crianca("Ana",4) );
 	criancas.push_back( Crianca("Rita",3) );
@@ -193,7 +193,7 @@ void test_g_baralhaCriancas(){
 	ASSERT_EQUAL("Ines", it->getNome());
 
 	Jogo jogo2(criancas2);
-	ASSERT_EQUAL(false, jogo1 == jogo2);*/
+	ASSERT_EQUAL(false, jogo1 == jogo2);
 }
 
 
