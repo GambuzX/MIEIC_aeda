@@ -5,7 +5,7 @@ Exercises solved during practical classes for the AEDA curricular unit, as well 
 #### Project
 [https://github.com/GambuzX/Games_Library](https://github.com/GambuzX/Games_Library "GamesLibrary")
 
-<br><br>
+<br>
 
 **Final Grade: ?**
 
